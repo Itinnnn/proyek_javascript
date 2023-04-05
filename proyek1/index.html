@@ -1,13 +1,39 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE-edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FizzBuzz</title>
+  </head>
   <body>
     <h1>Get a FizzBuzz Result!</h1>
+    <p>
+      <input type="text" id="inputFizzBuzz" />
+      <input type="button" id="btnFizzBuzz" value="hitung" />
+    </p>
 
-    <form action="/action_page.php" id="form1">
-      <label for="fname">Type a number:</label>
-      <input type="text" id="fname" name="fname" /><br /><br />
-      <input type="submit" value="Submit" />
-    </form>
+    <div id="hasil"></div>
+
+    <script>
+      function fizzBuzz() {
+        let angka = parseInt(document.getElementById("inputFizzBuzz").value);
+        let total = "";
+
+        for (let i = 1; i <= 100; i++) {
+          if (i % 3 === 0 && i % 5 === 0) {
+            total += "Fizz Buzz ";
+          } else if (i % 3 === 0) {
+            total += "Fizz ";
+          } else if (i % 5 === 0) {
+            total += "Buzz ";
+          } else {
+            total += `${i} `;
+          }
+        }
+        document.getElementById("hasil").textContent = total
+      }
+      document.getElementById("btnFizzBuzz").onclick = fizzBuzz;
+    </script>
   </body>
-  <script src="js/myscript.js"></script>
 </html>
